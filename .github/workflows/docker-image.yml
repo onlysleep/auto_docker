@@ -16,7 +16,7 @@ jobs:
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
         export con_name=xyzzpwn/hexo
         export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
-        export con_relese_name=$con_name:lastest
+        export con_relese_name=$con_name:latest
         docker build . --file ./Dockerfile --tag $con_time_name
         docker push $con_time_name
         docker tag $con_time_name $con_relese_name
