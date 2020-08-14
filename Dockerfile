@@ -1,4 +1,4 @@
-FROM ubuntu18.04:latest
+FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo 'Asia/Shanghai' >/etc/timezone && \
