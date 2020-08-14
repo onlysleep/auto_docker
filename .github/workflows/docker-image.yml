@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: | 
-        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secerts.DOCKER_USERNAME }} --password-stdin
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
         export con_name=xyzzpwn/hexo:$(date +%Y%m%d%H%M%S)
         docker build . --file ./Dockerfile --tag $con_name
         docker push $con_name
