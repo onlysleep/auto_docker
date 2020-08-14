@@ -3,6 +3,8 @@ name: Docker Image CI
 on:
   push:
     branches: [ master ]
+  schedule:
+    - cron: '50 23 * * 6'
     
 jobs:
   build:
@@ -12,7 +14,11 @@ jobs:
     - name: Build the Docker image
       run: | 
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
-        export con_name=xyzzpwn/hexo:$(date +%Y%m%d%H%M%S)
-        docker build . --file ./Dockerfile --tag $con_name
-        docker push $con_name
+        export con_name=xyzzpwn/hexo
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:lastest
+        docker build . --file ./Dockerfile --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
         
