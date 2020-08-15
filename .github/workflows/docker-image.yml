@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: | 
+      run: |
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
         export con_name=xyzzpwn/hexo
         export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
