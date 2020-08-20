@@ -13,7 +13,7 @@ jobs:
     steps:
       env:
         con_name: xyzzpwn/sage 
-        Dockerfile: "./Dockerfile"
+        Dockerfile: ./sage/Dockerfile
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
