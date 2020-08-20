@@ -3,7 +3,7 @@ name: hexo
 on:
   push:
     branches: [ master ]
-    paths: 'hexo/*'
+    paths: ['hexo/*','.github/workflows/hexo.yml']
   schedule:
     - cron: '50 23 * * 6'
     
