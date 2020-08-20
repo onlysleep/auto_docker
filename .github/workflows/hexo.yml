@@ -1,8 +1,9 @@
-name: Docker Image CI
+name: hexo
 
 on:
   push:
     branches: [ master ]
+    paths: 'hexo/*'
   schedule:
     - cron: '50 23 * * 6'
     
