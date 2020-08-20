@@ -3,7 +3,7 @@ name: sage
 on:
   push:
     branches: [ master ]
-    paths: 'sage/*'
+    paths: ['sage/*','.github/workflows/sage.yml']
   schedule:
     - cron: '50 23 * * 6'
     
