@@ -15,5 +15,5 @@ ENV LANGUAGE=en_US:en
 ENV TERM=screen
 ENV PWNLIB_NOTERM=false
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY docker-entrypoint.sh /docker-entrypoint.sh
+COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
