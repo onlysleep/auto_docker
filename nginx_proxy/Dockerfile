@@ -1,7 +1,5 @@
 FROM nginx:latest
 ENV DEBIAN_FRONTEND=noninteractive
-RUN sed -i 's/deb.debian.org/mirrors.bfsu.edu.cn/g' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/mirrors.bfsu.edu.cn/g' /etc/apt/sources.list 
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" >/etc/timezone && \
     set -xe && \
