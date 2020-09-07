@@ -15,9 +15,9 @@ jobs:
     - name: Build the Docker image
       env:
         con_name: xyzzpwn/nginx_proxy 
-        Docker_file: nginx_proxy/Dockerfile
+        Docker_file_dir: nginx_proxy
       run: |
-        cd nginx_proxy
+        cd $Docker_file_dir
         pwd
         sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
