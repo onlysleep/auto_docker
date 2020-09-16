@@ -12,7 +12,13 @@
 ```bash
 docker pull xyzzpwn/privoxy_proxy
 ```
+
 然后使用下面的命令
 ```bash
 docker run -it --rm -p 8888:8118 -e "address=ip:port" xyzzpwn/privoxy_proxy
+```
+
+指定ip
+```bash
+docker run -it --rm -p 8888:port -e "address=ip:port" -e "allowip=ip:port" xyzzpwn/privoxy_proxy
 ```
