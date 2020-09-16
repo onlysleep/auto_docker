@@ -5,7 +5,7 @@ if [ ! -n "$address" ]; then
   echo "need PROXY_ADDRESS_YOURSELF";
   exit 1;
 else
-    echo "listen-address  0.0.0.0:8118" >> /etc/privoxy/config;
+    sed -i "s/listen-address  127.0.0.1:8118/listen-address  0.0.0.0:8118/g" /etc/privoxy/config;
     echo "forward-socks5t / $address ." >> /etc/privoxy/config;
 fi
 
