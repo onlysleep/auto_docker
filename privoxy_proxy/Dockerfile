@@ -1,5 +1,4 @@
 FROM alpine:latest
-update && apk upgrade
 RUN set -xe && \
     apk update && \
     apk add -y privoxy
