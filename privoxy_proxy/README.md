@@ -20,5 +20,5 @@ docker run -it --rm -p 8888:8118 -e "address=ip:port" xyzzpwn/privoxy_proxy
 
 指定ip
 ```bash
-docker run -it --rm -p 8888:port -e "address=ip:port" -e "allowip=ip:port" xyzzpwn/privoxy_proxy
+docker run -it --rm -p 8888:8118 -e "address=ip:port" -e "allowip=ip" xyzzpwn/privoxy_proxy
 ```

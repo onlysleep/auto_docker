@@ -10,7 +10,7 @@ fi
 if [ ! -n "$allowip" ]; then
   sed -i "s/listen-address  127.0.0.1:8118/listen-address  0.0.0.0:8118/g" /etc/privoxy/config;
 else
-    sed -i "s/listen-address  127.0.0.1:8118/listen-address  allowip:8118/g" /etc/privoxy/config;
+    sed -i "s/listen-address  127.0.0.1:8118/listen-address  $allowip:8118/g" /etc/privoxy/config;
 fi   
 set -e
 privoxy --no-daemon /etc/privoxy/config ;
