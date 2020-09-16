@@ -11,7 +11,7 @@ fi
 if [ ! -n "$allowip" ]; then
   echo "allow all ip"
 else
-  echo "permit-access $address " >> /etc/privoxy/config;
+  echo "permit-access $allowip " >> /etc/privoxy/config;
 fi   
 set -e
 privoxy --no-daemon /etc/privoxy/config ;
