@@ -1,7 +1,7 @@
-# pwn_231
+# pwn_228
 [中文](./README_zh_CN.md)  [English](./README.md)
 ## 简介
-利用github action不断的构建可以用于测试的最新libc==2.31 docker镜像，并且发布到dockerhub
+利用github action不断的构建可以用于测试的最新libc==2.28 docker镜像，并且发布到dockerhub
 频率是北京时间每周一的早上8.30
 
 ## 镜像包括以下软件及配置
@@ -35,10 +35,10 @@
 ## 使用方法
 首先下载最新版docker镜像
 ```bash
-docker pull xyzzpwn/pwn_231
+docker pull xyzzpwn/pwn_228
 ```
 
 然后使用下面的命令
 ```bash
-docker run -it --rm xyzzpwn/pwn_231 zsh
+docker run -it --rm xyzzpwn/pwn_228 zsh
 ```
