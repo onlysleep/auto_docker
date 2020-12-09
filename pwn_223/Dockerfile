@@ -10,6 +10,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     git clone https://github.com/pwndbg/pwndbg && cd pwndbg && ./setup.sh && \
     echo c2V0IC1nIG1vdXNlIG9uOw==|base64 -d > ~/.tmux.conf && \
     python3 -m pip install --no-cache-dir pwntools gmpy2 z3-solver numpy && \
+    pip install --upgrade pip && \
     python -m pip install --no-cache-dir pwntools gmpy2 z3-solver numpy && \
     sh -c "$(wget -O- https://raw.githubusercontent.com/chnxyzz/oh-my-zsh/master/tools/install.sh)" && \
     curl https://raw.githubusercontent.com/chnxyzz/linux_install/master/vim/vimrc.txt -o ~/.vimrc
