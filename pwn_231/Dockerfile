@@ -5,7 +5,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     set -xe && \
     dpkg --add-architecture i386 && \
     apt-get update && \
-    apt-get install -y sudo wget cmake net-tools autojump lib32z1 libc6:i386 zsh gdb tmux vim curl git socat htop libgmp-dev libmpfr-dev libmpc-dev build-essential gcc g++ python-is-python3 python3-pip && \
+    apt-get install -y sudo wget openssh-server cmake net-tools autojump lib32z1 libc6:i386 zsh gdb tmux vim curl git socat htop libgmp-dev libmpfr-dev libmpc-dev build-essential gcc g++ python-is-python3 python3-pip && \
     git clone https://github.com/pwndbg/pwndbg && cd pwndbg && ./setup.sh && \
     echo c2V0IC1nIG1vdXNlIG9uOw==|base64 -d > ~/.tmux.conf && \
     python3 -m pip install --no-cache-dir pwntools gmpy2  z3-solver numpy && \
