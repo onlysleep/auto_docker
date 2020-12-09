@@ -40,5 +40,5 @@ docker pull xyzzpwn/pwn_228
 
 然后使用下面的命令
 ```bash
-docker run -it --rm xyzzpwn/pwn_228 zsh
+docker run -it --rm --cap-add=SYS_PTRACE --security-opt seccomp=unconfined xyzzpwn/pwn_228 zsh
 ```
