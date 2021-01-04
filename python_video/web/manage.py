@@ -7,7 +7,8 @@ video_keys={}
 app = Flask(import_name=__name__,
             static_url_path='/static', 
             static_folder='static')
-app.debug=True
+# app.debug=True
+app.debug=False
 
 @app.route('/')
 def index():
@@ -25,7 +26,7 @@ def play():
     try:
         if request.method == "GET":
             id=request.args.get('id',default=None)
-            print(video_keys)
+            # print(video_keys)
             src=os.path.join(video_basedir,video_keys[int(id)])
         return render_template('play.html',src=src)
     except:
