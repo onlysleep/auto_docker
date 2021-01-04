@@ -1,7 +1,7 @@
 # python_video
 [中文](./README_zh_CN.md)  [English](./README.md)
 ## 简介
-利用github action不断的构建可以用于测试的最新flask播放视频的docker镜像，并且发布到dockerhub
+利用github action不断的构建可以用于播放视频的最新python3 flask的docker镜像，并且发布到dockerhub
 频率是北京时间每周一的早上8.30
 
 ## 镜像包括以下软件及配置
