@@ -25,3 +25,9 @@ https://github.com/onlysleep/auto_docker/tree/master/python_spider
 
 ## downloadm3u8
 https://github.com/onlysleep/auto_docker/tree/master/downloadm3u8
+
+## python_flask
+https://github.com/onlysleep/auto_docker/tree/master/python_flask
+
+## python_video
+https://github.com/onlysleep/auto_docker/tree/master/python_video
