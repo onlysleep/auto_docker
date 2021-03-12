@@ -1,7 +1,7 @@
 FROM alpine:latest
 RUN set -xe && \
     apk update && \
-    apk add privoxy
+    apk add --no-cache --update privoxy
 ENV LC_ALL=C.UTF-8
 ENV LANG=en_US.UTF-8
 ENV LANGUAGE=en_US:en
