@@ -1,0 +1,30 @@
+name: smb_server
+
+on:
+  push:
+    branches: [ master ]
+    paths: ['smb_server/*','.github/workflows/smb_server.yml']
+  schedule:
+    - cron: '50 0 * * 0'
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/smb_server 
+        Docker_file_dir: smb_server
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+        
