@@ -8,4 +8,5 @@ if [ ! -n "$pass" ]; then
   exit 1;
 fi
 htpasswd -b -c /var/www/webdavpasswd/passwd.dav $user $pass
+chown -R www-data:www-data /var/www/webdav
 apachectl -D FOREGROUND
