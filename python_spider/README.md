@@ -9,6 +9,8 @@
 - pyparser
 - lxml
 - requests
+- dateutil
+- html5lib
 
 ## 使用方法
 首先下载最新版docker镜像
