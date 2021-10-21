@@ -1,9 +1,9 @@
-name: webdrive_chrome
+name: python_spider
 
 on:
   push:
     branches: [ master ]
-    paths: ['webdrive_chrome/*','.github/workflows/webdrive_chrome.yml']
+    paths: ['python_spider/*','.github/workflows/python_spider.yml']
   schedule:
     - cron: '50 0 * * 0'
     
@@ -14,8 +14,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       env:
-        con_name: xyzzpwn/webdrive_chrome 
-        Docker_file_dir: webdrive_chrome
+        con_name: xyzzpwn/python_spider 
+        Docker_file_dir: python_spider
       run: |
         cd $Docker_file_dir
         pwd
