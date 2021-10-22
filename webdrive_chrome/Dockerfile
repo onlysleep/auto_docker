@@ -12,3 +12,7 @@ ENV LANG=en_US.UTF-8
 ENV LANGUAGE=en_US:en
 ENV TERM=screen
 ENV PWNLIB_NOTERM=false
+RUN set -xe \
+    && useradd -u 1000 -g 1000 -G sudo --shell /bin/bash --no-create-home --home-dir /tmp web \
+    && echo 'ALL ALL = (ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
+USER web
