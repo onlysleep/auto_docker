@@ -6,7 +6,7 @@ RUN sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     set -xe && \
     sudo apt-get update && \
     sudo apt-get install -y git wget curl autojump vim zsh && \
-    sage -python -m pip install pwntools pycrypto  z3-solver numpy && \
+    sage -python -m pip install pwntools pycrypto  z3-solver numpy gmpy gmpy2 && \
     sudo apt-get clean && \
     sudo rm -fr /var/lib/apt/lists/* 
 USER sage
