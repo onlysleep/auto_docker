@@ -14,7 +14,6 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     apt-get install -y sudo wget openssh-server net-tools autojump zsh gdb vim curl git socat htop gcc g++ python-is-python3 python3-pip && \
     sh -c "$(wget -O- https://raw.githubusercontent.com/chnxyzz/oh-my-zsh/master/tools/install.sh)" && \
     curl https://raw.githubusercontent.com/chnxyzz/linux_install/master/vim/vimrc.txt -o ~/.vimrc && \
-    echo c2VkIC1pICdzOzovL1woW14vXSpcKS87Oi8vbWlycm9ycy51c3RjLmVkdS5jbi87JyAvZXRjL2FwdC9zb3VyY2VzLmxpc3QgL2V0Yy9hcHQvc291cmNlcy5saXN0LmQvcGFycm90Lmxpc3QgL2V0Yy9hcGsvcmVwb3NpdG9yaWVzOw== | base64 -d > /changemirrors.sh && \
     mkdir /root/.ssh && \
     chsh -s /bin/zsh && \
     curl https://github.com/chnxyzz.keys >> ~/.ssh/authorized_keys && \
@@ -30,5 +29,6 @@ ENV TERM=screen
 ENV PWNLIB_NOTERM=false
 
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+COPY ./changemirrors.sh /changemirrors.sh
 
 CMD ["/docker-entrypoint.sh"]
