@@ -14,6 +14,7 @@ app.debug=False
 def index():
     # video_list=list_all_files('/web/static/video/')
     video_list=list_all_files(video_basedir)
+    video_list.sort()
     # return '\n'.join(video_list)
     global video_keys
     video_keys={}
