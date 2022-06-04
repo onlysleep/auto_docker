@@ -20,10 +20,7 @@ COPY settings.json /config/data/User/settings.json
 COPY argv.json /config/data/User/argv.json
 COPY languagepacks.json /config/data/languagepacks.json
 COPY clp /config/data/clp
-ARG ip=proxy.dopwn.cn 
-ARG port=8080 
-ARG http_proxy="http://$ip:$port/" 
-ARG https_proxy="http://$ip:$port/"
+
 RUN git clone https://github.com/chnxyzz/oh-my-zsh.git /config/.oh-my-zsh
 RUN mkdir -p /config/.config && chown -R abc:abc /config/.config && \
     mkdir -p /config/extensions && chown -R abc:abc /config/extensions && \
@@ -38,10 +35,6 @@ RUN mkdir -p /config/.config && chown -R abc:abc /config/.config && \
     # chown -R root:root custom-services.d 
 USER abc
 
-ARG ip=proxy.dopwn.cn 
-ARG port=8080 
-ARG http_proxy="http://$ip:$port/" 
-ARG https_proxy="http://$ip:$port/"
 RUN wget -O /tmp/zh-hans.vsix https://github.com/microsoft/vscode-loc/releases/download/release/1.66.3/vscode-language-pack-zh-hans-v1.66.3.vsix && \
     # wget -O /tmp/zh-hans.vsix $(curl https://api.github.com/repos/microsoft/vscode-loc/releases|grep browser_download_url |grep zh-hans|head -n 1|cut -d '"' -f 4) && \
     /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension /tmp/zh-hans.vsix&& \
