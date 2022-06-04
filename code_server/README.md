@@ -17,5 +17,5 @@ docker pull xyzzpwn/code_server
 
 然后使用下面的命令
 ```bash
-docker run -d -p 80:8443 --restart unless-stopped xyzzpwn/codeserver
+docker run -d -p 80:8443 --restart unless-stopped xyzzpwn/code_server
 ```
