@@ -1,0 +1,31 @@
+FROM codercom/code-server:latest
+FROM codercom/code-server:latest
+
+USER root
+ENV DEBIAN_FRONTEND=noninteractive
+ENV LC_ALL=C.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV TERM=screen
+ENV PWNLIB_NOTERM=false
+ENV PUID=1000
+ENV PGID=1000
+ENV TZ=Asia/Shanghai
+
+RUN sed -i 's;://\([^/]*\)/;://mirrors.ustc.edu.cn/;' /etc/apt/sources.list /etc/apt/sources.list.d/parrot.list /etc/apk/repositories; apt-get update
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo "Asia/Shanghai" >/etc/timezone && \
+    set -xe && \
+    apt-get install -y gcc g++ python3 wget curl zsh autojump git htop
+USER coder
+ARG ip=proxy.dopwn.cn 
+ARG port=8080 
+ARG http_proxy="http://$ip:$port/" 
+ARG https_proxy="http://$ip:$port/"
+RUN curl ip.sb && \
+    # /usr/bin/code-server --install-extension MS-CEINTL.vscode-language-pack-zh-hans && \
+    # /usr/bin/code-server --install-extension ms-python.python && \
+    # /usr/bin/code-server --install-extension golang.Go 
+    # /app/code-server/bin/code-server --install-extension MS-CEINTL.vscode-language-pack-zh-hans && \
+    /app/code-server/bin/code-server --install-extension ms-python.python && \
+    /app/code-server/bin/code-server --install-extension golang.Go 
