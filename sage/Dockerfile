@@ -5,8 +5,8 @@ RUN sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     sudo echo "Asia/Shanghai" >/etc/timezone && \
     set -xe && \
     sudo apt-get update && \
-    sudo apt-get install -y git wget curl autojump vim zsh && \
-    sage -python -m pip install pwntools pycrypto z3-solver numpy gmpy gmpy2 pandas && \
+    sudo apt-get install -y git wget curl autojump vim zsh unzip zip zstd && \
+    sage -python -m pip install pwntools pycrypto z3-solver numpy gmpy gmpy2 pandas tqdm && \
     sudo apt-get clean && \
     sudo rm -fr /var/lib/apt/lists/* 
 USER sage
