@@ -7,5 +7,5 @@ done
 
 for name in py36 py37 py38
 do 
-    /root/miniconda/bin/conda run -n $name python -m pip install pwntools jupyter notebook
+    /root/miniconda/bin/conda run -n $name python -m pip install pwntools jupyter notebook libnum
 done
