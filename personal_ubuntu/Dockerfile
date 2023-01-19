@@ -11,7 +11,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" >/etc/timezone && \
     set -xe && \
     apt-get update && \
-    apt-get install -y sudo wget openssh-server net-tools autojump zsh gdb vim curl git cmake socat htop gcc g++ tmux build-essential \
+    apt-get install -y sudo wget openssh-server net-tools autojump zsh gdb vim inetutils-ping curl git cmake socat htop gcc g++ tmux build-essential \
     python-is-python3 python3-pip mysql-server apache2 nginx software-properties-common openjdk-17-jdk golang && \
     add-apt-repository ppa:ondrej/php && \
     apt-get update && \
