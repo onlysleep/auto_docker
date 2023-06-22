@@ -1,0 +1,342 @@
+name: all_jobs
+
+on:
+  push:
+    branches: [ master ]
+    paths: ['code_server/*','.github/workflows/code_server.yml']
+  schedule:
+    - cron: '00 11 * * 4'
+
+jobs:    
+  code_server:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/code_server 
+        Docker_file_dir: code_server
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name --no-cache
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+        
+  downloadm3u8:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/downloadm3u8 
+        Docker_file_dir: downloadm3u8
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+          
+  hexo:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/hexo 
+        Docker_file_dir: hexo
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+
+  nginx_proxy:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/nginx_proxy 
+        Docker_file_dir: nginx_proxy
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+
+        
+  personal_ubuntu:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/personal_ubuntu 
+        Docker_file_dir: personal_ubuntu
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+          
+      
+  privoxy_proxy:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/privoxy_proxy 
+        Docker_file_dir: privoxy_proxy
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+          
+
+      
+  pwn_223:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/pwn_223 
+        Docker_file_dir: pwn_223
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+
+      
+  pwn_227:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/pwn_227 
+        Docker_file_dir: pwn_227
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+
+      
+  pwn_231:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/pwn_231 
+        Docker_file_dir: pwn_231
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+
+      
+  python_flask:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/python_flask 
+        Docker_file_dir: python_flask
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+          
+      
+  webdrive_chrome:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/webdrive_chrome 
+        Docker_file_dir: webdrive_chrome
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+          
+
+  python_video:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/python_video 
+        Docker_file_dir: python_video
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name --no-cache
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+      
+  sage:
+    runs-on: ubuntu-latest
+    steps:        
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/sage 
+        Docker_file_dir: sage
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+        name: smb_server
+
+      
+  smb_server:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/smb_server 
+        Docker_file_dir: smb_server
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+          
+    
+  webdav_server:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/webdav_server 
+        Docker_file_dir: webdav_server
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+      
+  python_spider:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/python_spider 
+        Docker_file_dir: python_spider
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+        
