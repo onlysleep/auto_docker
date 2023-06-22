@@ -9,8 +9,8 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     npm install -g hexo-cli && \
     apt-get clean && \
     rm -fr /var/lib/apt/lists/* && \
-    sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list && \
+    sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list.d/debian.sources && \
+    sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list.d/debian.sources && \
     npm config set registry https://registry.npm.taobao.org 
 ENV LC_ALL=C.UTF-8
 ENV LANG=en_US.UTF-8
