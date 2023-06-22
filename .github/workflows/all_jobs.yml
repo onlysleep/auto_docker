@@ -5,7 +5,7 @@ on:
     branches: [ master ]
     paths: ['code_server/*','.github/workflows/code_server.yml']
   schedule:
-    - cron: '05 * * * *'
+    - cron: '50 0 * * 0'
 
 jobs:    
   code_server:
