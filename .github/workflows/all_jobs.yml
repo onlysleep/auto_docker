@@ -276,7 +276,6 @@ jobs:
         docker push $con_time_name
         docker tag $con_time_name $con_relese_name
         docker push $con_relese_name
-        name: smb_server
 
       
   smb_server:
