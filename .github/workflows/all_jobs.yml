@@ -3,7 +3,7 @@ name: all_jobs
 on:
   push:
     branches: [ master ]
-    paths: ['code_server/*','.github/workflows/code_server.yml']
+    paths: ['*','.github/workflows/all_jobs.yml']
   schedule:
     - cron: '50 0 * * 0'
 
