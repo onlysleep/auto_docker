@@ -10,7 +10,7 @@ ENV PWNLIB_NOTERM=false
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" >/etc/timezone && \
     set -xe && \
-    && apt-get update && \
+    && apt-get update && \ex
     apt-get install -y samba 
 
 COPY smb.conf /etc/samba/smb.conf
