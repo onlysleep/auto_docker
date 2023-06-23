@@ -28,6 +28,9 @@ RUN mkdir -p /config/.config && chown -R abc:abc /config/.config && \
     chown -R abc:abc /config/.oh-my-zsh  && \ 
     mkdir -p /config/data/User && chown -R abc:abc /config/data && \
     cp /config/.oh-my-zsh/templates/zshrc.zsh-template /config/.zshrc 
+RUN chmod +w /etc/sudoers && \
+    echo "abc ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+    chmod -w /etc/sudoers
 # RUN chown -R abc:abc /config 
 # RUN mkdir -p /config/data/User \
     # chown -R root:root .bash_history && \
