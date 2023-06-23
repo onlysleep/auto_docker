@@ -21,7 +21,7 @@ COPY argv.json /config/data/User/argv.json
 COPY languagepacks.json /config/data/languagepacks.json
 COPY clp /config/data/clp
 
-RUN git clone https://github.com/chnxyzz/oh-my-zsh.git /config/.oh-my-zsh
+RUN git clone https://github.com/chnxyzz/oh-my-zsh.git /config/.oh-my-zsh 
 RUN mkdir -p /config/.config && chown -R abc:abc /config/.config && \
     mkdir -p /config/extensions && chown -R abc:abc /config/extensions && \
     mkdir -p /config/.local && chown -R abc:abc /config/.local && \
@@ -30,7 +30,7 @@ RUN mkdir -p /config/.config && chown -R abc:abc /config/.config && \
     cp /config/.oh-my-zsh/templates/zshrc.zsh-template /config/.zshrc 
 RUN chmod +w /etc/sudoers && \
     echo "abc ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers && \
-    chmod -w /etc/sudoers
+    chmod -w /etc/sudoers 
 # RUN chown -R abc:abc /config 
 # RUN mkdir -p /config/data/User \
     # chown -R root:root .bash_history && \
