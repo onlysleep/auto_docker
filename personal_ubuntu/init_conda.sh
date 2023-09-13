@@ -1,11 +1,11 @@
 #/bin/bash
-for name in py27 py37 py38 py39 py310
+for version in 3.6 3.7 3.8 3.9 3.10 3.11
 do
-    /root/miniconda/bin/conda create -y -n $name python=2.7 && \
-    /root/miniconda/bin/conda install -y -n $name requests numpy pandas requests gmpy2
+    name='py'${version/./}
+    echo $name
+    /root/miniconda/bin/conda create -y -n $name python=$version && \
+    /root/miniconda/bin/conda install -y -n $name requests numpy pandas requests gmpy2 libnum pwntools jupyter notebook
 done
 
-for name in py37 py38
-do 
-    /root/miniconda/bin/conda run -n $name python -m pip install pwntools jupyter notebook libnum
-done
+/root/miniconda/bin/conda create -y -n py27 python=2.7 && \
+/root/miniconda/bin/conda run -n py27 python -m pip install requests numpy pandas requests gmpy2 libnum pyelftools==0.29 pathlib2 pwntools
