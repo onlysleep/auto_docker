@@ -42,6 +42,8 @@ COPY ./init_conda.sh /init_conda.sh
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
     bash ./Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda && \
     /root/miniconda/bin/conda init $(echo $SHELL | awk -F '/' '{print $NF}') && \
+    /root/miniconda/bin/conda init bash && \
+    ln -s /root/miniconda/bin/conda /usr/bin/conda && \
     echo 'Successfully installed miniconda...' && \
     echo -n 'Conda version: ' && \
     /root/miniconda/bin/conda --version && \
