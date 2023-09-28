@@ -48,7 +48,7 @@ RUN wget -O /tmp/zh-hans.vsix https://github.com/microsoft/vscode-loc/releases/d
 
 # 安装miniconda
 COPY ./init_conda.sh ~/init_conda.sh
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+RUN cd ~/ && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
     bash ./Miniconda3-latest-Linux-x86_64.sh -b -p ~/miniconda && \
     ~/miniconda/bin/conda init $(echo $SHELL | awk -F '/' '{print $NF}') && \
     echo 'Successfully installed miniconda...' && \
