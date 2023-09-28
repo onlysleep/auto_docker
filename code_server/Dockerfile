@@ -49,15 +49,15 @@ RUN wget -O /tmp/zh-hans.vsix https://github.com/microsoft/vscode-loc/releases/d
 # 安装miniconda
 COPY ./init_conda.sh /tmp/init_conda.sh
 RUN wget -O /tmp/Miniconda3-latest-Linux-x86_64.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
-    bash /tmp/Miniconda3-latest-Linux-x86_64.sh -b -p ~/miniconda && \
-    ~/miniconda/bin/conda init $(echo $SHELL | awk -F '/' '{print $NF}') && \
+    sudo bash /tmp/Miniconda3-latest-Linux-x86_64.sh -b -p ~/miniconda && \
+    sudo ~/miniconda/bin/conda init $(echo $SHELL | awk -F '/' '{print $NF}') && \
     echo 'Successfully installed miniconda...' && \
     echo -n 'Conda version: ' && \
-    ~/miniconda/bin/conda --version && \
+    sudo ~/miniconda/bin/conda --version && \
     echo -e '\n' && \
     tail -n 16 ~/.bashrc >> ~/.zshrc && \
-    ~/miniconda/bin/conda config --set auto_activate_base false && \
-    bash /tmp/init_conda.sh
+    sudo ~/miniconda/bin/conda config --set auto_activate_base false && \
+    sudo bash /tmp/init_conda.sh
 
 USER root
 
