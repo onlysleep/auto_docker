@@ -36,6 +36,20 @@ RUN chmod +w /etc/sudoers && \
     # chown -R root:root .bash_history && \
     # chown -R root:root custom-cont-init.d && \
     # chown -R root:root custom-services.d 
+
+# 安装miniconda
+COPY ./init_conda.sh /init_conda.sh
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+    bash ./Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda && \
+    ~/miniconda/bin/conda init $(echo $SHELL | awk -F '/' '{print $NF}') && \
+    echo 'Successfully installed miniconda...' && \
+    echo -n 'Conda version: ' && \
+    ~/miniconda/bin/conda --version && \
+    echo -e '\n' && \
+    tail -n 16 ~/.bashrc >> ~/.zshrc && \
+    /root/miniconda/bin/conda config --set auto_activate_base false && \
+    bash /init_conda.sh
+
 USER abc
 
 RUN wget -O /tmp/zh-hans.vsix https://github.com/microsoft/vscode-loc/releases/download/release/1.66.3/vscode-language-pack-zh-hans-v1.66.3.vsix && \
@@ -45,19 +59,6 @@ RUN wget -O /tmp/zh-hans.vsix https://github.com/microsoft/vscode-loc/releases/d
     /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension golang.Go&& \
     /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension redhat.java&& \
     /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension rust-lang.rust 
-
-# 安装miniconda
-COPY ./init_conda.sh /tmp/init_conda.sh
-RUN wget -O /tmp/Miniconda3-latest-Linux-x86_64.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
-    sudo bash /tmp/Miniconda3-latest-Linux-x86_64.sh -b -p ~/miniconda && \
-    sudo ~/miniconda/bin/conda init $(echo $SHELL | awk -F '/' '{print $NF}') && \
-    echo 'Successfully installed miniconda...' && \
-    echo -n 'Conda version: ' && \
-    sudo ~/miniconda/bin/conda --version && \
-    echo -e '\n' && \
-    sudo tail -n 16 ~/.bashrc >> ~/.zshrc && \
-    sudo ~/miniconda/bin/conda config --set auto_activate_base false && \
-    sudo bash /tmp/init_conda.sh
 
 USER root
 
