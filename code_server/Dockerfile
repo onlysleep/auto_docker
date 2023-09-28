@@ -55,7 +55,7 @@ RUN wget -O /tmp/Miniconda3-latest-Linux-x86_64.sh https://repo.anaconda.com/min
     echo -n 'Conda version: ' && \
     sudo ~/miniconda/bin/conda --version && \
     echo -e '\n' && \
-    tail -n 16 ~/.bashrc >> ~/.zshrc && \
+    sudo tail -n 16 ~/.bashrc >> ~/.zshrc && \
     sudo ~/miniconda/bin/conda config --set auto_activate_base false && \
     sudo bash /tmp/init_conda.sh
 
