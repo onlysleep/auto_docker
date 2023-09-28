@@ -3,7 +3,7 @@ name: all_jobs
 on:
   push:
     branches: [ master ]
-    paths: ['*/Dockerfile','.github/workflows/all_jobs.yml']
+    paths: ['*/Dockerfile','.github/workflows/all_jobs.yml','code_server/init_conda.sh']
   schedule:
     - cron: '50 0 * * 0'
 
