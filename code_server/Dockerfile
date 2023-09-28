@@ -46,5 +46,18 @@ RUN wget -O /tmp/zh-hans.vsix https://github.com/microsoft/vscode-loc/releases/d
     /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension redhat.java&& \
     /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension rust-lang.rust 
 
+# 安装miniconda
+COPY ./init_conda.sh ~/init_conda.sh
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+    bash ./Miniconda3-latest-Linux-x86_64.sh -b -p ~/miniconda && \
+    ~/miniconda/bin/conda init $(echo $SHELL | awk -F '/' '{print $NF}') && \
+    echo 'Successfully installed miniconda...' && \
+    echo -n 'Conda version: ' && \
+    ~/miniconda/bin/conda --version && \
+    echo -e '\n' && \
+    tail -n 16 ~/.bashrc >> ~/.zshrc && \
+    ~/miniconda/bin/conda config --set auto_activate_base false && \
+    bash ~/init_conda.sh
 
 USER root
+
