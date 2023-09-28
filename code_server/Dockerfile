@@ -15,7 +15,7 @@ RUN sed -i 's;://\([^/]*\)/;://mirrors.ustc.edu.cn/;' /etc/apt/sources.list /etc
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" >/etc/timezone && \
     set -xe && \
-    apt-get install -y gcc g++ python3 wget curl zsh autojump git htop python3-pip
+    apt-get install -y gcc g++ python3 wget curl zsh autojump git htop python3-pip vim
 COPY settings.json /config/data/User/settings.json
 COPY argv.json /config/data/User/argv.json
 COPY languagepacks.json /config/data/languagepacks.json
@@ -41,8 +41,6 @@ RUN chmod +w /etc/sudoers && \
 COPY ./init_conda.sh /init_conda.sh
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
     bash ./Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda && \
-    /root/miniconda/bin/conda init $(echo $SHELL | awk -F '/' '{print $NF}') && \
-    /root/miniconda/bin/conda init bash && \
     ln -s /root/miniconda/bin/conda /usr/bin/conda && \
     echo 'Successfully installed miniconda...' && \
     echo -n 'Conda version: ' && \
@@ -50,7 +48,8 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &
     echo -e '\n' && \
     tail -n 16 ~/.bashrc >> ~/.zshrc && \
     /root/miniconda/bin/conda config --set auto_activate_base false && \
-    bash /init_conda.sh
+    bash /init_conda.sh && \
+    /root/miniconda/bin/conda init bash
 
 USER abc
 
