@@ -39,9 +39,11 @@ RUN chmod +w /etc/sudoers && \
 
 # 安装miniconda
 COPY ./init_conda.sh /init_conda.sh
+COPY ./conda.rc /conda.rc
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
     bash ./Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda && \
     /root/miniconda/bin/conda init bash && \
+    /root/miniconda/bin/conda init $(echo $SHELL | awk -F '/' '{print $NF}') && \
     ln -s /root/miniconda/bin/conda /usr/bin/conda && \
     echo 'Successfully installed miniconda...' && \
     echo -n 'Conda version: ' && \
@@ -50,7 +52,9 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &
     tail -n 16 ~/.bashrc >> ~/.zshrc && \
     /root/miniconda/bin/conda config --set auto_activate_base false && \
     bash /init_conda.sh && \
-    /root/miniconda/bin/conda init bash
+    /root/miniconda/bin/conda init bash && \
+    cat /conda.rc >> ~/.bashrc && \
+    source ~/.bashrc
 
 USER abc
 
