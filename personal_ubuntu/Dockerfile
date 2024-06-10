@@ -16,7 +16,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     add-apt-repository ppa:ondrej/php && \
     apt-get update && \
     apt-get -y install php7.4 libapache2-mod-php7.4 libssl-dev php7.4-curl libgmp-dev && \
-    python3 -m pip install pwntools numpy pandas requests jupyter notebook gmpy2 gmpy && \
+    python3 -m pip install pwntools numpy pandas requests jupyter notebook gmpy2 gmpy --break-system-packages && \
     sh -c "$(wget -O- https://raw.githubusercontent.com/chnxyzz/oh-my-zsh/master/tools/install.sh)" && \
     curl https://raw.githubusercontent.com/chnxyzz/linux_install/master/vim/vimrc.txt -o ~/.vimrc && \
     mkdir /root/.ssh && \
