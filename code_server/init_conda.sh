@@ -9,4 +9,5 @@ do
 done
 
 /root/miniconda/bin/conda create -y -n py27 python=2.7 && \
+/root/miniconda/bin/conda run -n py27 python -m pip install --upgrade pip==20.3.4 && \
 /root/miniconda/bin/conda run -n py27 python -m pip install requests numpy pandas requests gmpy2 libnum pyelftools==0.29 pathlib2 pwntools
