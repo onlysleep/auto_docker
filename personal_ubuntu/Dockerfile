@@ -19,7 +19,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     python3 -m pip install pwntools numpy pandas requests jupyter notebook gmpy2 --break-system-packages && \
     sh -c "$(wget -O- https://raw.githubusercontent.com/chnxyzz/oh-my-zsh/master/tools/install.sh)" && \
     curl https://raw.githubusercontent.com/chnxyzz/linux_install/master/vim/vimrc.txt -o ~/.vimrc && \
-    mkdir /root/.ssh && \
+    mkdir -p /root/.ssh && \
     chsh -s /bin/zsh && \
     curl https://github.com/chnxyzz.keys >> ~/.ssh/authorized_keys && \
     sudo chmod 600 ~/.ssh/authorized_keys && \
