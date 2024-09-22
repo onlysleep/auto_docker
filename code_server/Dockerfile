@@ -55,7 +55,8 @@ RUN wget -O /tmp/zh-hans.vsix https://github.com/microsoft/vscode-loc/releases/d
     /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension ms-python.python&& \
     /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension golang.Go&& \
     /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension redhat.java&& \
-    /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension rust-lang.rust 
+    /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension rust-lang.rust && \
+    /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension Continue.continue
 
 USER root
 
