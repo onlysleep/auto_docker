@@ -1,4 +1,4 @@
-FROM lscr.io/linuxserver/code-server:latest
+FROM linuxserver/code-server:latest
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
