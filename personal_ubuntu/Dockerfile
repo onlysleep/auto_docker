@@ -46,6 +46,8 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &
     ~/miniconda/bin/conda --version && \
     echo -e '\n' && \
     tail -n 16 ~/.bashrc >> ~/.zshrc && \
+    /root/miniconda/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main && \
+    /root/miniconda/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r && \
     /root/miniconda/bin/conda config --set auto_activate_base false && \
     bash /init_conda.sh
 
