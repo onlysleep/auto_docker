@@ -18,7 +18,8 @@ COPY clp /config/data/clp
 COPY ./init_conda.sh /init_conda.sh
 COPY ./bash.rc /root/.bashrc
 
-RUN sed -i 's;://\([^/]*\)/;://mirrors.ustc.edu.cn/;' /etc/apt/sources.list /etc/apt/sources.list.d/parrot.list /etc/apk/repositories; apt-get update && \
+# RUN sed -i 's;://\([^/]*\)/;://mirrors.ustc.edu.cn/;' /etc/apt/sources.list /etc/apt/sources.list.d/parrot.list /etc/apk/repositories; 
+RUN apt-get update && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" >/etc/timezone && \
     set -xe && \
