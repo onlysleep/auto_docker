@@ -1,4 +1,4 @@
-FROM python:alpine
+FROM python:bookworm
 ENV DEBIAN_FRONTEND=noninteractive
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" >/etc/timezone && \
