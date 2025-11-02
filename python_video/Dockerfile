@@ -11,4 +11,4 @@ unzip layui.zip && \
 cp -r layui-layui-*/src/* /web/static/ && \
 cp /web/static/css/layui.css /web/static/layui.css && \
 rm -rf layui.zip layui-layui-* && \
-python -m pip install yt-dlp
+python -m pip install yt-dlp pycryptodomex certifi
