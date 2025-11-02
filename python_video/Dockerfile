@@ -10,5 +10,5 @@ RUN curl -L $(curl -L https://api.github.com/repos/sentsin/layui/tags |grep zipb
 unzip layui.zip && \
 cp -r layui-layui-*/src/* /web/static/ && \
 cp /web/static/css/layui.css /web/static/layui.css && \
-rm -rf layui.zip layui-layui-*
-
+rm -rf layui.zip layui-layui-* && \
+python -m pip install yt-dlp
