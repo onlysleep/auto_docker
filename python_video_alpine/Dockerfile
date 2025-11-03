@@ -1,4 +1,4 @@
-FROM xyzzpwn/python_flask
+FROM xyzzpwn/python_flask_alpine
 
 ENV DEBIAN_FRONTEND=noninteractive
 copy ./web /web
