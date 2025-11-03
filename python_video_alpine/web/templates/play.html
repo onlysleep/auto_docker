@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        <title>xyzz's Video player</title>
+        <link rel="stylesheet" href="static/video.css" />
+    </head>
+
+    <body>
+        <div class="grid">
+            <main>
+                <div id="container">
+                    <video
+                        controls
+                        crossorigin
+                        playsinline
+                        poster=""
+                        id="player"
+                    >
+                        <!-- Video files -->
+                        <source
+                            src="{{src}}"
+                            type="video/mp4"
+                            size="1080"
+                        />                       
+                    </video>
+                </div>
+            </main>
+        </div>
+        <script src="static/video.js" crossorigin="anonymous"></script>
+    </body>
+</html>
+

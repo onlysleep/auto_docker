@@ -243,7 +243,26 @@ jobs:
         docker push $con_time_name
         docker tag $con_time_name $con_relese_name
         docker push $con_relese_name
-          
+
+  python_flask_alpine:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/python_flask_alpine 
+        Docker_file_dir: python_flask_alpine
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
       
   webdrive_chrome:
     runs-on: ubuntu-latest
@@ -274,6 +293,26 @@ jobs:
       env:
         con_name: xyzzpwn/python_video 
         Docker_file_dir: python_video
+      run: |
+        cd $Docker_file_dir
+        pwd
+        sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        export con_time_name=$con_name:$(date +%Y%m%d%H%M%S)
+        export con_relese_name=$con_name:latest
+        docker build . --tag $con_time_name --no-cache
+        docker push $con_time_name
+        docker tag $con_time_name $con_relese_name
+        docker push $con_relese_name
+
+  python_video_alpine:
+    runs-on: ubuntu-latest
+    steps:   
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        con_name: xyzzpwn/python_video_alpine 
+        Docker_file_dir: python_video_alpine
       run: |
         cd $Docker_file_dir
         pwd
