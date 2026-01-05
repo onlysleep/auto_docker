@@ -11,7 +11,9 @@ RUN ssh-keygen -A
 RUN echo "PermitRootLogin prohibit-password" >> /etc/ssh/sshd_config \
     && echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config \
     && echo "PasswordAuthentication no" >> /etc/ssh/sshd_config \
-    && echo "ChallengeResponseAuthentication no" >> /etc/ssh/sshd_config
+    && echo "ChallengeResponseAuthentication no" >> /etc/ssh/sshd_config \
+    && echo "AllowTcpForwarding yes" >> /etc/ssh/sshd_config \
+    && echo "GatewayPorts yes" >> /etc/ssh/sshd_config 
 
 # 下载公钥文件
 ADD https://github.com/chnxyzz.keys /root/.ssh/authorized_keys
